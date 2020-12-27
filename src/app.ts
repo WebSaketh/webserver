@@ -18,7 +18,7 @@ import cors from "cors";
 //Retrive and Store RepoList
 const getRepoData = async () => {
   try {
-    const res = await fetch("https://api.github.com/users/octocat/repos");
+    const res = await fetch("https://api.github.com/users/WebSaketh/repos");
     const body = await res.json();
     body.map((repo: any) => {
       const repoRecord = new Repo({
