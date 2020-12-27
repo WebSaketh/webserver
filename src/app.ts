@@ -49,7 +49,7 @@ async function main() {
   const app = express();
   app.use(cors());
   //DataBase URL
-  const dbURL = "REPLACE WITH MONOGDB URL";
+  const dbURL = process.env.DB_URL!;
 
   //Connect to MongoDB
   mongoose.connect(dbURL, { useNewUrlParser: true });
