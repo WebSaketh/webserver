@@ -10,6 +10,7 @@ import fetch from "node-fetch";
 import Repo from "./models/repo";
 import mongoose from "mongoose";
 import cors from "cors";
+require("dotenv").config();
 
 /**
  * DESCRIPTION
@@ -49,10 +50,10 @@ async function main() {
   const app = express();
   app.use(cors());
   //DataBase URL
-  const dbURL = process.env.DB_URL!;
+  const dbURL = process.env.DB_URL?.toString()!;
 
   //Connect to MongoDB
-  mongoose.connect(dbURL, { useNewUrlParser: true });
+  mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
   //listen for requests
   app.listen(3001);
